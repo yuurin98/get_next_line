@@ -6,7 +6,7 @@
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:16:28 by lchee-ti          #+#    #+#             */
-/*   Updated: 2023/11/14 16:41:36 by lchee-ti         ###   ########.fr       */
+/*   Updated: 2023/11/16 11:03:17 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*ft_strdup(const char *str)
 		buffer[i] = str[i];
 		i++;
 	}
+	buffer[i] = '\0';
 	return (buffer);
 }
 
@@ -62,4 +63,44 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	buffer[i] = '\0';
 	return (buffer);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	slen;
+
+	i = 0;
+	slen = 0;
+	while (i + 1 < dstsize && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (dstsize > 0)
+		dst[i] = '\0';
+	while (src[slen] != '\0')
+		slen++;
+	return (slen);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substring;
+	size_t	slen;
+	size_t	sublen;
+
+	if (s == NULL)
+		return (NULL);
+	slen = ft_strlen((char *)s);
+	if (start >= slen || len == 0)
+		return (ft_strdup(""));
+	sublen = len;
+	if (start + len > slen)
+		sublen = slen - start;
+	substring = (char *)malloc(sizeof(char) * sublen + 1);
+	if (substring == NULL)
+		return (NULL);
+	ft_strlcpy(substring, s + start, sublen + 1);
+	return (substring);
 }
