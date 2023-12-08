@@ -6,7 +6,7 @@
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:16:21 by lchee-ti          #+#    #+#             */
-/*   Updated: 2023/12/06 16:20:00 by lchee-ti         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:41:57 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ char	*get_line(int fd, char *line)
 }
 
 char	*until_endline(char *line)
-{	char	*trimmed;
+{	
+	char	*trimmed;
 	int		i;
 
 	i = 0;
