@@ -28,8 +28,9 @@ char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
-int		is_newline(const char *str);
-char	*get_line(char **s);
+char	*get_line(int fd, char *line);
+char	*until_endline(char *line);
+char	*new_line(char	*line);
 char	*get_next_line(int fd);
 
 #endif
