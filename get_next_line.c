@@ -97,6 +97,7 @@ char	*get_next_line(int fd)
 	return (current_line);
 }
 
+/*
 int	main(void)
 {
 	int	fd = open("test.txt", O_RDONLY);
@@ -108,5 +109,4 @@ int	main(void)
 
 	close(fd);
 }
-/*
 */
