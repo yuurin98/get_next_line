@@ -6,7 +6,7 @@
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:44:10 by lchee-ti          #+#    #+#             */
-/*   Updated: 2023/11/08 16:44:39 by lchee-ti         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:00:52 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ char	*ft_strchr(char *s, int c);
 char	*get_line(int fd, char *line);
 char	*until_endline(char *line);
 char	*new_line(char	*line);
-char	*get_next_line_bonus(int fd);
+char	*get_next_line(int fd);
 
 #endif

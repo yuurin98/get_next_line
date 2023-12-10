@@ -6,7 +6,7 @@
 /*   By: lchee-ti <lchee-ti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:44:07 by lchee-ti          #+#    #+#             */
-/*   Updated: 2023/11/16 10:57:10 by lchee-ti         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:02:40 by lchee-ti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,24 +79,25 @@ char	*new_line(char	*line)
 	return (new_start);
 }
 
-char	*get_next_line_bonus(int fd)
+char	*get_next_line(int fd)
 {
-	static char	*line;
+	static char	*line[_SC_OPEN_MAX];
 	char		*current_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &current_line, 0) < 0)
 		return (NULL);
-	line = get_line(fd, line);
-	if (line == NULL)
+	line[fd] = get_line(fd, line[fd]);
+	if (line[fd] == NULL)
 	{
-		free(line);
+		free(line[fd]);
 		return (NULL);
 	}
-	current_line = until_endline(line);
-	line = new_line(line);
+	current_line = until_endline(line[fd]);
+	line[fd] = new_line(line[fd]);
 	return (current_line);
 }
 
+/*
 int	main(void)
 {
 	int	fd = open("test.txt", O_RDONLY);
@@ -111,5 +112,4 @@ int	main(void)
 	close(fd);
     close(fd2);
 }
-/*
 */
